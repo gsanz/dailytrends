@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "556f8d44-dbd7-40d2-a581-c8da98794977",
+		"name": "PostmanCRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "806268"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/feeds",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"feedName\":\"AS1\",\r\n    \"feedDescription\":\"AS2\",\r\n    \"feedSource\":\"AS3\",\r\n    \"feedDate\":\"2023-12-14T23:08:28.121Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/feeds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"feeds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/feeds/all",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/feeds/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"feeds",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/feeds/all",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/feeds/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"feeds",
+						"read"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
