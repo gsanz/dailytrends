@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from 'mongoose';
+import feedRoutes from './routes/feeds.routes'
 import config from "./config/config";
 
 const app = express();
@@ -14,6 +15,6 @@ mongoose
     })
     
 app.use(express.json());
-
+app.use(feedRoutes)
 app.listen(config.server.port);
 console.log("Server on port", config.server.port);
