@@ -40,4 +40,34 @@ static async getAllFeeds(req: Request, res: Response, next: NextFunction) {
   }
 }
 
+static async getNewsFeeds(req: Request, res: Response, next: NextFunction) {
+  try {
+    let pageOptions: { page: number; limit: number } = {
+      page: Number(req.query.page) || 1,
+      limit: Number(req.query.limit) || 10,
+    };
+     const dataFeed = await feedService.getReadFeeds()
+     const feedElPaisData = dataFeed.elPais;
+     const feedElMundoData = dataFeed.elMundo;
+    
+     const savedFeeds = []
+
+     for (let i = 0; i < 5; i++) {
+      const date = new Date()
+      savedFeeds.push(await feedService.insertFeeds(feedElPaisData.headers[i],feedElPaisData.descriptions[i],feedElPaisData.dataSource,date.toISOString()));
+  }
+
+     
+  for (let i = 0; i < 5; i++) {
+    const date = new Date()
+    savedFeeds.push(await feedService.insertFeeds(feedElMundoData.headers[i],feedElMundoData.descriptions[i],feedElMundoData.dataSource,date.toISOString()));
+}  
+   
+  return jsonOne<IFeedModel[]>(res, 201, savedFeeds);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 }
